@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FoxLib">
+    <Reference Include="FoxLib, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FoxLib\FoxLib\bin\Release\FoxLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -48,6 +49,7 @@
     <Compile Include="GimmickLocatorSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TppRouteSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

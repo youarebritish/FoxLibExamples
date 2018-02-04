@@ -14,7 +14,39 @@
         {
             MakeRandomNamedLba(20, "hello_world_001.lba");
             ReadLbaAndPrintLocatorPositions("hello_world_001.lba");
+
+            MakeFrt("hello_world_003.frt");
+            ReadFrtAndPrintNodePositions("hello_world_003.frt");
+
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Make a RouteSet and write it to an frt file.
+        /// </summary>
+        /// <param name="outputPath">Path of the file to write to.</param>
+        private static void MakeFrt(string outputPath)
+        {
+            var routeset = TppRouteSetExamples.CreateRouteSet();
+            TppRouteSetExamples.WriteRouteSet(routeset, outputPath);
+        }
+
+        /// <summary>
+        /// Read a .frt file and write the positions of its nodes to the console.
+        /// </summary>
+        /// <param name="frtPath">Path of the file to read.</param>
+        private static void ReadFrtAndPrintNodePositions(string frtPath)
+        {
+            var routeSet = TppRouteSetExamples.ReadRouteSet(frtPath);
+
+            var positions = from route in routeSet.Routes
+                        from node in route.Nodes
+                        select node.Position;
+
+            foreach (var position in positions)
+            {
+                Console.WriteLine(position);
+            }
         }
 
         /// <summary>
